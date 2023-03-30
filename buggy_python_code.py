@@ -1,7 +1,7 @@
 import flask
 import yaml
 import urllib3
-import urllib
+import urllib as urllib2
 
 app = flask.Flask(__name__)
 
@@ -25,7 +25,7 @@ def print_nametag(format_string, person):
 
 def fetch_website(urllib_version, url):
     # Import the requested version (2 or 3) of urllib
-    urllib = urllib if urllib_version == 2 else urllib3
+    urllib = urllib2 if urllib_version == 2 else urllib3
  
     try: 
         http = urllib.PoolManager()
